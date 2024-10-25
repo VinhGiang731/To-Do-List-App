@@ -7,6 +7,7 @@
     <string name="start">Start</string>
     <string name="schedule">Schedule</string>
     <string name="note">Note</string>
+    <string name="search">Search Note</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_make_note_activity">This is make note activity</string>
