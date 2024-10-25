@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ToDoList" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <!-- res/values/themes.xml -->
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/Base.Theme.ToDoList</item>
+    </style>
+
+    <!-- styles.xml -->
+    <style name="make_yourse">
+        <item name="android:textSize">30sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+</resources>

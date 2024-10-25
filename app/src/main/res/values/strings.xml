@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">To-Do-List</string>
+    <string name="on.time">on.time</string>
+    <string name="notification">Notification</string>
+    <string name="more">more</string>
+    <string name="text_Welcome">Make yourself\nmore on time</string>
+    <string name="start">Start</string>
+    <string name="schedule">Schedule</string>
+    <string name="note">Note</string>
+</resources>
