@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
+<!--    mai phải design tiếp-->
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="match_parent"
