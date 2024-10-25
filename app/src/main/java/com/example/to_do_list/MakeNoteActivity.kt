@@ -11,7 +11,7 @@ class MakeNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMakenoteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         binding = ActivityMakenoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
         AddEventBtnMore()
@@ -21,6 +21,18 @@ class MakeNoteActivity : AppCompatActivity() {
     private fun ViewPagerSetup() {
         val adt = viewPagerAdapter(supportFragmentManager, lifecycle)
         binding.pgForTablayout.adapter = adt
+
+        TabLayoutMediator(binding.tblOptions, binding.pgForTablayout) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = getString(R.string.schedule)
+                }
+
+                1 -> {
+                    tab.text = getString(R.string.note)
+                }
+            }
+        }.attach()
     }
 
     private fun AddEventBtnMore() {

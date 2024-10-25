@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activity_background"
-    android:fitsSystemWindows="true"
+
     tools:context=".MakeNoteActivity">
 
 
@@ -60,6 +60,7 @@
         android:id="@+id/tbl_options"
         android:layout_width="298sp"
         android:layout_height="45sp"
+        android:contentDescription="@string/desc_make_note_activity"
         android:layout_marginTop="30sp"
         android:background="@drawable/bg_options_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,24 +71,12 @@
         app:tabIndicatorColor="@color/white_less"
         app:tabIndicatorHeight="1.8sp"
         app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/white_less">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/schedule" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/note" />
-
-    </com.google.android.material.tabs.TabLayout>
+        app:tabTextColor="@color/white_less"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pg_forTablayout"
-        android:layout_width="409dp"
-        android:layout_height="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbl_options" />
