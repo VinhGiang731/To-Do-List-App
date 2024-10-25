@@ -11,7 +11,7 @@ class MakeNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMakenoteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         binding = ActivityMakenoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
         AddEventBtnMore()

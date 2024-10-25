@@ -13,7 +13,7 @@ class viewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     override fun createFragment(position: Int): Fragment {
         return when (position){
             0 -> {
-                Schedul_fragment()
+                Schedule_fragment()
             } else -> {
                 Note_fragment()
             }
