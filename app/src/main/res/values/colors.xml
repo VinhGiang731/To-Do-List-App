@@ -5,5 +5,6 @@
     <color name="white_less">#DDF8F3F3</color>
     <color name="purple">#3C1F7B</color>
     <color name="purple_search">#CBC1FD</color>
+    <color name="bg_item_note">#7E64FE</color>
 
 </resources>
