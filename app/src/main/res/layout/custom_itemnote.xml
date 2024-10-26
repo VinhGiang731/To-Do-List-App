@@ -7,7 +7,7 @@
     android:background="@drawable/bg_note_content">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="2sp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_note_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
@@ -26,16 +26,16 @@
         android:text="@string/note_date"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_note" />
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_pushpin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/empty_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_note"
         android:contentDescription="@string/desc_push_pin"
         app:srcCompat="@drawable/bg_btn_push_pin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
