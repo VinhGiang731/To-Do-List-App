@@ -13,6 +13,9 @@
     <string name="desc_push_pin">this is button push pin</string>
     <string name="max_Date">01/01/2999</string>
     <string name="min_Date">01/01/2000</string>
+    <string name="btn_float">This is float button</string>
+    <string name="btn_float1">This is float button note</string>
+    <string name="btn_float2">This is float button schedule</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_make_note_activity">This is make note activity</string>

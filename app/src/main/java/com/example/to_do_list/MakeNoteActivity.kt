@@ -2,6 +2,7 @@ package com.example.to_do_list
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.to_do_list.databinding.ActivityMakenoteBinding
@@ -14,8 +15,27 @@ class MakeNoteActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMakenoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         AddEventBtnMore()
         ViewPagerSetup()
+        AddEvenBtnFloat()
+    }
+
+    private fun AddEvenBtnFloat() {
+        var flag = false
+        binding.btnBassFloat.setOnClickListener {
+            flag = !flag
+            if(flag) {
+                binding.btnBassFloat.setImageResource(R.drawable.bg_btn_close)
+                binding.btnSubFloat1.visibility = View.VISIBLE
+                binding.btnSubFloat2.visibility = View.VISIBLE
+            } else{
+                binding.btnBassFloat.setImageResource(R.drawable.bg_btn_float)
+                binding.btnSubFloat1.visibility = View.GONE
+                binding.btnSubFloat2.visibility = View.GONE
+            }
+
+        }
     }
 
     private fun ViewPagerSetup() {
