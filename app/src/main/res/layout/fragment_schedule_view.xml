@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".Schedule_fragment">
 
     <CalendarView
         android:id="@+id/cld_schedule"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:selectedWeekBackgroundColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</LinearLayout>
+        android:layout_gravity="center"
+        android:dateTextAppearance="@style/StyleDateTextAppearanceStyle"
+        android:maxDate="@string/max_Date"
+        android:minDate="@string/min_Date"
+        android:theme="@style/CalendarViewTitle"
+        android:weekDayTextAppearance="@style/StyleTextAppearanceStyle" />
+
+
+</RelativeLayout>

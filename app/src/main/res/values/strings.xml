@@ -11,6 +11,8 @@
     <string name="note_content">this morning\'s meeting, we have to improve the quality of office facilities and another...</string>
     <string name="note_date">31/07/2004</string>
     <string name="desc_push_pin">this is button push pin</string>
+    <string name="max_Date">01/01/2999</string>
+    <string name="min_Date">01/01/2000</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_make_note_activity">This is make note activity</string>
