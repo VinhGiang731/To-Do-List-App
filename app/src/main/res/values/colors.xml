@@ -8,5 +8,6 @@
     <color name="purple">#3C1F7B</color>
     <color name="purple_search">#CBC1FD</color>
     <color name="bg_item_note">#7E64FE</color>
+    <color name="bg_float">#36364A</color>
 
 </resources>

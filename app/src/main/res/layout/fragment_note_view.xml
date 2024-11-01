@@ -24,7 +24,6 @@
         android:id="@+id/lv_note"
         android:dividerHeight="10sp"
         android:divider="@drawable/empty_bg"
-        android:listSelector="@drawable/bg_note_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
