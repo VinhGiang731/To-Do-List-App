@@ -7,11 +7,11 @@ import android.view.animation.AnticipateOvershootInterpolator
 import android.view.animation.OvershootInterpolator
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayoutStates
 import com.example.to_do_list.databinding.ActivityMakenoteBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayoutMediator
 
+//ngày mai làm giao diện cho btn newSchedule, newNote1 và noticifation
 class MakeNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMakenoteBinding
     private lateinit var fab_sub1: FloatingActionButton

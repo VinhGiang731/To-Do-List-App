@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/empty_bg"
         android:padding="14sp"
+        android:contentDescription="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img_btn_back" />

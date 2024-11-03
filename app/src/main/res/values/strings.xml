@@ -3,6 +3,8 @@
     <string name="on.time">on.time</string>
     <string name="notification">Notification</string>
     <string name="more">more</string>
+    <string name="back">back</string>
+    <string name="insert_note">insert note</string>
     <string name="text_Welcome">Make yourself\nmore on time</string>
     <string name="start">Start</string>
     <string name="schedule">Schedule</string>
@@ -19,4 +21,13 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc_make_note_activity">This is make note activity</string>
+
+    <string name="full_day">Full day</string>
+    <string name="start_from">Start from</string>
+    <string name="finish">Finish</string>
+    <string name="repeat">Repeat</string>
+    <string name="reminder">Reminder</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_place">Place</string>
+    <string name="hint_note">Notes</string>
 </resources>

@@ -95,7 +95,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/fab_subFloat2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/bg_btn_note" />
+        app:srcCompat="@drawable/img_btn_note" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_subFloat2"
@@ -109,7 +109,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/fab_bassFloat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/bg_btn_schedule" />
+        app:srcCompat="@drawable/img_btn_schedule" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_bassFloat"
@@ -123,7 +123,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="35sp"
-        app:srcCompat="@drawable/bg_btn_float" />
+        app:srcCompat="@drawable/img_btn_float" />
 
     <!--    <include layout="@layout/fab_layout" />-->
 

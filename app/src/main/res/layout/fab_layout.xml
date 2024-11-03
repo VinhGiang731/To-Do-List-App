@@ -15,7 +15,7 @@
         android:clickable="true"
         android:contentDescription="@string/btn_float1"
         android:focusable="true"
-        android:src="@drawable/bg_btn_note"
+        android:src="@drawable/img_btn_note"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/fab_subFloat2"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -30,7 +30,7 @@
         android:clickable="true"
         android:contentDescription="@string/btn_float2"
         android:focusable="true"
-        android:src="@drawable/bg_btn_schedule"
+        android:src="@drawable/img_btn_schedule"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
