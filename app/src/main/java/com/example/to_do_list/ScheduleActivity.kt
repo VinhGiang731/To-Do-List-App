@@ -12,5 +12,13 @@ class ScheduleActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityScheduleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        AddeventBtnBack()
+    }
+
+    private fun AddeventBtnBack() {
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

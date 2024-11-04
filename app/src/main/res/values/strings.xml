@@ -30,4 +30,13 @@
     <string name="hint_title">Title</string>
     <string name="hint_place">Place</string>
     <string name="hint_note">Notes</string>
+    
+    <string name="hint_startForm">Mon, 20 Sep 2024 10:00 AM</string>
+    <string name="hint_finish">Mon, 20 Sep 2024 10:00 AM</string>
+    <string name="hint_repeat">One time</string>
+    <string name="hint_reminder">Before 5 minutes</string>
+    <string name="desc_pickDateStart">This is the button to select the note start date</string>
+    <string name="desc_pickDateFinish">This is the button to select the note finish date</string>
+    <string name="desc_repeat">This is the button to select the number of repetitions</string>
+    <string name="desc_reminder">This is the button to select the repeat time</string>
 </resources>

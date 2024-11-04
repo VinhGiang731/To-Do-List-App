@@ -8,50 +8,46 @@ import android.view.animation.OvershootInterpolator
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.to_do_list.databinding.ActivityMakenoteBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayoutMediator
 
 //ngày mai làm giao diện cho btn newSchedule, newNote1 và noticifation
 class MakeNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMakenoteBinding
-    private lateinit var fab_sub1: FloatingActionButton
-    private lateinit var fab_sub2: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMakenoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        fab_sub1 = findViewById(R.id.fab_subFloat1)
-        fab_sub2 = findViewById(R.id.fab_subFloat2)
-
 
         AddEventBtnMore()
         ViewPagerSetup()
         AddEvenBtnFloat()
     }
 
-//    private fun AddEvenBtnFloat() {
-//        var flag = false
-//        binding.apply {
-//            binding.fabBassFloat.setOnClickListener {
-//                flag = !flag
-//                if (flag) {
-//                    binding.fabBassFloat.animate().setDuration(300).rotation(135f).withEndAction {
-//                        binding.fabBassFloat.setImageResource(R.drawable.bg_btn_close)
-//                    }.start()
-//
-//
-//                    fab_sub1.show()
-//                    fab_sub2.show()
-//                } else {
-//                    binding.fabBassFloat.setImageResource(R.drawable.bg_btn_float)
-//                    fab_sub1.hide()
-//                    fab_sub2.hide()
-//                }
-//            }
-//        }
-//    }
+    /*   private fun AddEvenBtnFloat() {
+    //        var flag = false
+    //        binding.apply {
+    //            binding.fabBassFloat.setOnClickListener {
+    //                flag = !flag
+    //                if (flag) {
+    //                    binding.fabBassFloat.animate().setDuration(300).rotation(135f).withEndAction {
+    //                        binding.fabBassFloat.setImageResource(R.drawable.bg_btn_close)
+    //                    }.start()
+    //
+    //
+    //                    fab_sub1.show()
+    //                    fab_sub2.show()
+    //                } else {
+    //                    binding.fabBassFloat.setImageResource(R.drawable.bg_btn_float)
+    //                    fab_sub1.hide()
+    //                    fab_sub2.hide()
+    //                }
+    //            }
+    //        }
+    //    }
+
+     */
 
     private fun AddEvenBtnFloat() {
         var flag = false
@@ -64,6 +60,19 @@ class MakeNoteActivity : AppCompatActivity() {
                     colse()
                 }
             }
+        }
+//        AddEventSubFloat1()
+        AddEventSubFloat2()
+    }
+
+    //    private fun AddEventSubFloat2() {
+//        TODO("Not yet implemented")
+//    }
+
+    private fun AddEventSubFloat2() {
+        binding.fabSubFloat2.setOnClickListener {
+            val i = Intent(this, ScheduleActivity::class.java)
+            startActivity(i)
         }
     }
 

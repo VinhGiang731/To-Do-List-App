@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_more_options"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".ScheduleActivity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,16 +42,12 @@
     <TextView
         android:id="@+id/textView"
         style="@style/textStyleNewSchedule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/schedule" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/edt_title"
         style="@style/tableRowStyle"
-        android:layout_marginStart="14sp"
-        android:layout_marginEnd="14sp"
-        android:background="@color/purple_search"
+        android:background="@drawable/bg_edt"
         android:ems="10"
         android:hint="@string/hint_title"
         android:inputType="text"
@@ -61,81 +57,153 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="0sp"
-                android:layout_weight="1"
                 style="@style/textStyleNewSchedule"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="@string/full_day" />
 
             <Switch
-                android:id="@+id/switch1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/swt_fullday"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:thumbTint="@color/white"
+                android:trackTint="@color/purple_search"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/textStyleNewSchedule"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="@string/start_from" />
+
+            <TextView
+                android:id="@+id/txt_start"
+                style="@style/datePicker"
+                android:text="@string/hint_startForm" />
+
+            <ImageButton
+                android:id="@+id/btn_pickDateStart"
+                style="@style/btn_datePicker"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:background="@drawable/empty_bg"
+                android:contentDescription="@string/desc_pickDateStart"
+                android:src="@drawable/img_btn_pickdate"
+                tools:ignore="ContentDescription" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/textStyleNewSchedule"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="@string/finish" />
+
+            <TextView
+                android:id="@+id/txt_finish"
+                style="@style/datePicker"
+                android:text="@string/hint_finish" />
+
+            <ImageButton
+                android:id="@+id/btn_pickDateFinish"
+                style="@style/btn_datePicker"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:background="@drawable/empty_bg"
+                android:contentDescription="@string/desc_pickDateFinish"
+                android:src="@drawable/img_btn_pickdate"
+                tools:ignore="ContentDescription" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/textStyleNewSchedule"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="@string/repeat" />
+
+            <TextView
+                android:id="@+id/txt_repeat"
+                style="@style/datePicker"
+                android:text="@string/hint_repeat" />
+
+            <ImageButton
+                android:id="@+id/btn_pickRepeat"
+                style="@style/btn_datePicker"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:background="@drawable/empty_bg"
+                android:contentDescription="@string/desc_repeat"
+                android:src="@drawable/img_btn_pickdate"
+                tools:ignore="ContentDescription" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/textStyleNewSchedule"
-                android:text="TextView" />
+                android:layout_weight="1"
+                android:text="@string/reminder" />
+
+            <TextView
+                android:id="@+id/txt_reminder"
+                style="@style/datePicker"
+                android:text="@string/reminder" />
+
+            <ImageButton
+                android:id="@+id/btn_pickReminder"
+                style="@style/btn_datePicker"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:background="@drawable/empty_bg"
+                android:contentDescription="@string/desc_reminder"
+                android:src="@drawable/img_btn_pickdate"
+                tools:ignore="ContentDescription" />
         </TableRow>
     </TableLayout>
 
+    <EditText
+        android:id="@+id/edt_place"
+        style="@style/tableRowStyle"
+        android:background="@drawable/bg_edt"
+        android:ems="10"
+        android:hint="@string/hint_place"
+        android:inputType="text"
+        android:textColorHint="@color/hint"
+        android:textSize="18sp"
+        tools:ignore="Autofill,RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/edt_notes"
+        style="@style/tableRowStyle"
+        android:layout_marginTop="14sp"
+        android:background="@drawable/bg_edt"
+        android:ems="10"
+        android:hint="@string/hint_note"
+        android:inputType="text"
+        android:textColorHint="@color/hint"
+        android:textSize="18sp"
+        tools:ignore="Autofill,RtlSymmetry" />
 
 </LinearLayout>
