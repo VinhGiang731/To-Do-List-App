@@ -61,13 +61,16 @@ class MakeNoteActivity : AppCompatActivity() {
                 }
             }
         }
-//        AddEventSubFloat1()
+        AddEventSubFloat1()
         AddEventSubFloat2()
     }
 
-    //    private fun AddEventSubFloat2() {
-//        TODO("Not yet implemented")
-//    }
+    private fun AddEventSubFloat1() {
+        binding.fabSubFloat1.setOnClickListener {
+            val i = Intent(this, InsertNoteActivity::class.java)
+            startActivity(i)
+        }
+    }
 
     private fun AddEventSubFloat2() {
         binding.fabSubFloat2.setOnClickListener {

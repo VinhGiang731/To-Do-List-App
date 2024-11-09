@@ -11,5 +11,6 @@
     <color name="bg_float">#36364A</color>
     <color name="hint">#4F4F4F</color>
     <color name="btn_pickDate">#828282</color>
+    <color name="bg_insertNote">#5442AA</color>
 
 </resources>
