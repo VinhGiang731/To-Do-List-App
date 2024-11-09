@@ -14,6 +14,11 @@ class ListNoteAdapter(var activity: Activity, val list: List<ListNote>) :
         return list.size
     }
 
+    /*
+    ngay mai doi listview sang recycle view va thay doi adapter cho no
+    tiep theo cau hinh cac cau lenh truy van cho SQLite va xu ly truoc them note
+     */
+
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val contexts = activity.layoutInflater

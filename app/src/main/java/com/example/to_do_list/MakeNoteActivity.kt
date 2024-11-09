@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.to_do_list.databinding.ActivityMakenoteBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-//ngày mai làm giao diện cho btn newSchedule, newNote1 và noticifation
 class MakeNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMakenoteBinding
 
@@ -24,30 +23,6 @@ class MakeNoteActivity : AppCompatActivity() {
         ViewPagerSetup()
         AddEvenBtnFloat()
     }
-
-    /*   private fun AddEvenBtnFloat() {
-    //        var flag = false
-    //        binding.apply {
-    //            binding.fabBassFloat.setOnClickListener {
-    //                flag = !flag
-    //                if (flag) {
-    //                    binding.fabBassFloat.animate().setDuration(300).rotation(135f).withEndAction {
-    //                        binding.fabBassFloat.setImageResource(R.drawable.bg_btn_close)
-    //                    }.start()
-    //
-    //
-    //                    fab_sub1.show()
-    //                    fab_sub2.show()
-    //                } else {
-    //                    binding.fabBassFloat.setImageResource(R.drawable.bg_btn_float)
-    //                    fab_sub1.hide()
-    //                    fab_sub2.hide()
-    //                }
-    //            }
-    //        }
-    //    }
-
-     */
 
     private fun AddEvenBtnFloat() {
         var flag = false
