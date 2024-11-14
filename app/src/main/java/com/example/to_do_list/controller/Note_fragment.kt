@@ -1,10 +1,13 @@
-package com.example.to_do_list
+package com.example.to_do_list.controller
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.to_do_list.R
 import com.example.to_do_list.databinding.FragmentNoteViewBinding
+import com.example.to_do_list.model.ListNote
+import com.example.to_do_list.model.Rv_NoteAdapter
 
 class Note_fragment : Fragment(R.layout.fragment_note_view) {
    private lateinit var binding: FragmentNoteViewBinding

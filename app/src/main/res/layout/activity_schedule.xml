@@ -8,7 +8,7 @@
     android:background="@drawable/bg_more_options"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".ScheduleActivity">
+    tools:context=".controller.ScheduleActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

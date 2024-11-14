@@ -1,4 +1,4 @@
-package com.example.to_do_list
+package com.example.to_do_list.controller
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

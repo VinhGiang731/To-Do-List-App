@@ -1,4 +1,4 @@
-package com.example.to_do_list
+package com.example.to_do_list.controller
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,9 @@ import android.view.animation.AnticipateOvershootInterpolator
 import android.view.animation.OvershootInterpolator
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.to_do_list.R
 import com.example.to_do_list.databinding.ActivityMakenoteBinding
+import com.example.to_do_list.model.viewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MakeNoteActivity : AppCompatActivity() {

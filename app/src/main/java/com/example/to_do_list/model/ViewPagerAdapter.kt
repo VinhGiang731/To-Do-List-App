@@ -1,9 +1,11 @@
-package com.example.to_do_list
+package com.example.to_do_list.model
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.to_do_list.controller.Note_fragment
+import com.example.to_do_list.controller.Schedule_fragment
 
 class viewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {

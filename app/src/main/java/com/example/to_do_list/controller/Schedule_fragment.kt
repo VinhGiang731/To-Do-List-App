@@ -1,9 +1,10 @@
-package com.example.to_do_list
+package com.example.to_do_list.controller
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import com.example.to_do_list.R
 import com.example.to_do_list.databinding.FragmentScheduleViewBinding
 
 class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {

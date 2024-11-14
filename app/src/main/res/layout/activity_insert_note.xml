@@ -8,7 +8,7 @@
     android:background="@drawable/bg_insert_note"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".InsertNoteActivity">
+    tools:context=".controller.InsertNoteActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
