@@ -20,13 +20,13 @@
         android:focusable="true"
         android:queryHint="@string/search" />
 
-    <ListView
-        android:id="@+id/lv_note"
-        android:dividerHeight="10sp"
-        android:divider="@drawable/empty_bg"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_listNote"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="match_parent"
         android:layout_marginStart="15sp"
-        android:layout_marginEnd="15sp" />
+        android:layout_marginEnd="15sp"
+        android:layout_marginBottom="10sp" />
+
+
 </LinearLayout>
