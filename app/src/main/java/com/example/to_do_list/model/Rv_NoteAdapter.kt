@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.to_do_list.databinding.CustomItemnoteBinding
 
-class Rv_NoteAdapter(val activity: Activity, val list: List<ListNote>) : RecyclerView.Adapter<Rv_NoteAdapter.viewHolder>() {
+class Rv_NoteAdapter(val activity: Activity, val list: List<ListNote>, val onItem: ItemNoteClick) :
+    RecyclerView.Adapter<Rv_NoteAdapter.viewHolder>() {
     private lateinit var binding: CustomItemnoteBinding
 
     inner class viewHolder(binding: CustomItemnoteBinding) : RecyclerView.ViewHolder(binding.root)
@@ -21,9 +22,9 @@ class Rv_NoteAdapter(val activity: Activity, val list: List<ListNote>) : Recycle
             binding.txtNote.text = list[position].txt_note
             binding.txtNoteDate.text = list[position].txt_noteDate
 
-//            holder.itemView.setOnClickListener {
-//                on
-//            }
+            holder.itemView.setOnClickListener {
+                onItem.onClickNote(position)
+            }
         }
     }
 

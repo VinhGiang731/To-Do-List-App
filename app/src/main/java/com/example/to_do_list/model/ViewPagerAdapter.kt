@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.to_do_list.controller.Note_fragment
+import com.example.to_do_list.controller.NoteFragment
 import com.example.to_do_list.controller.Schedule_fragment
 
 class viewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
@@ -17,7 +17,7 @@ class viewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
             0 -> {
                 Schedule_fragment()
             } else -> {
-                Note_fragment()
+                NoteFragment()
             }
         }
     }
