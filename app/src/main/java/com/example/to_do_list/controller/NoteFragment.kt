@@ -32,10 +32,31 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
 
         //Tạo dữ liệu ban đầu để test
         val helper = MyHelper(requireContext())
-        db = helper.readableDatabase
-        rs = db.rawQuery("SELECT * FROM TODOLIST", null)
-
         list = mutableListOf()
+        db = helper.readableDatabase
+        getValueDataBase()
+
+        adapter = Rv_NoteAdapter(requireActivity(), list, object : ItemNoteClick {
+            override fun onClickNote(pos: Int) {
+                Toast.makeText(requireActivity(), "Note: ${list[pos].txt_note}", Toast.LENGTH_SHORT)
+                    .show()
+                removeNote(pos)
+            }
+        })
+
+        binding.rvListNote.adapter = adapter
+        binding.rvListNote.layoutManager = LinearLayoutManager(requireActivity())
+
+    }
+
+    private fun getValueDataBase() {
+        if (::rs.isInitialized && !rs.isClosed) {
+            rs.close()
+        }
+
+        rs = db.rawQuery("SELECT * FROM TODOLIST", null)
+        list.clear()
+
         if (rs.moveToFirst()) {
             do {
                 val idNote = rs.getString(rs.getColumnIndexOrThrow("_id"))
@@ -44,27 +65,17 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
                 list.add(ListNote(idNote, note, date))
             } while (rs.moveToNext())
         }
-
-        adapter = Rv_NoteAdapter(requireActivity(), list, object : ItemNoteClick {
-            override fun onClickNote(pos: Int) {
-                Toast.makeText(requireActivity(), "Note: ${list[pos].idNote}", Toast.LENGTH_SHORT)
-                    .show()
-                removeNote(pos)
-            }
-        })
-        binding.rvListNote.adapter = adapter
-        adapter.notifyDataSetChanged()
-        binding.rvListNote.layoutManager = LinearLayoutManager(requireActivity())
-
+        rs.close()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    // việc dùng SQLite chưa được tốt, nên chuyển sang firebase để hon thành đồ án này và học lại SQLite sau
     private fun removeNote(pos: Int) {
         val dialog = AlertDialog.Builder(requireActivity())
         dialog.apply {
             setTitle("Confirm")
             setMessage("Are you sure this is done?")
             setIcon(R.drawable.img_warning)
+
             setNegativeButton("No") { dialogIT: DialogInterface, _: Int ->
                 dialogIT.dismiss()
             }
@@ -75,14 +86,13 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
                 db.delete(
                     "TODOLIST", "_id = ?", arrayOf(noteToRemove.idNote)
                 )
-                list.removeAt(pos)
-                adapter.notifyDataSetChanged()
 
-                rs.close()
-                rs = db.rawQuery("SELECT * FROM TODOLIST", null)
+                list.removeAt(pos)
+                adapter.notifyItemRemoved(pos)
+                adapter.notifyItemRangeChanged(pos, list.size)
+
             }
         }
         dialog.show()
     }
-
 }
