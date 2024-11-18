@@ -8,7 +8,7 @@
     tools:context=".controller.NoteFragment">
 
     <SearchView
-        android:id="@+id/searching"
+        android:id="@+id/btn_search"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_gravity="center"

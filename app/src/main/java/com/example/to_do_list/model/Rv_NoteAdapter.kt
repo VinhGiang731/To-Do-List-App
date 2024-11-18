@@ -22,6 +22,11 @@ class Rv_NoteAdapter(val activity: Activity, val list: List<ListNote>, val onIte
             binding.txtNote.text = list[position].txt_note
             binding.txtNoteDate.text = list[position].txt_noteDate
 
+            holder.itemView.setOnLongClickListener {
+                onItem.onLongClickNote(position)
+                true
+            }
+
             holder.itemView.setOnClickListener {
                 onItem.onClickNote(position)
             }
