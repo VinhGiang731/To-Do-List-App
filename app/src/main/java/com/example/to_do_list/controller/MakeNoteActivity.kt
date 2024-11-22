@@ -34,7 +34,7 @@ class MakeNoteActivity : AppCompatActivity() {
                 if (flag) {
                     expand()
                 } else {
-                    colse()
+                    close()
                 }
             }
         }
@@ -56,7 +56,7 @@ class MakeNoteActivity : AppCompatActivity() {
         }
     }
 
-    private fun colse() {
+    private fun close() {
         /*
              binding.fabBassFloat.animate().setDuration(300).rotation(0f).start()
             fabBassFloat.animate(): Bắt đầu một chuỗi hoạt ảnh trên nút fabBassFloat.

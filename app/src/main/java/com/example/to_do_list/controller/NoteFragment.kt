@@ -38,6 +38,10 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
         getValueDataBase()
 
         //adapter cho recycle view
+        setUpAdapter()
+    }
+
+    private fun setUpAdapter() {
         adapter = Rv_NoteAdapter(requireActivity(), list, object : ItemNoteClick {
 
             //override lai 2 phuong thuc nhan long va nhan short cho item rvListNode
@@ -57,7 +61,6 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
         //set adapter cho rvListNode
         binding.rvListNote.adapter = adapter
         binding.rvListNote.layoutManager = LinearLayoutManager(requireActivity())
-
     }
 
     //fun nay dung de goi activity InsertNote
@@ -79,7 +82,7 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
     override fun onResume() {
         super.onResume()
         getValueDataBase()
-        adapter.notifyDataSetChanged()
+        setUpAdapter()
     }
 
     //ham get value tu db

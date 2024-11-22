@@ -124,8 +124,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="35sp"
         app:srcCompat="@drawable/img_btn_float" />
-
-    <!--    <include layout="@layout/fab_layout" />-->
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
