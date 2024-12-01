@@ -2,6 +2,7 @@ package com.example.to_do_list.controller
 
 import android.content.ContentValues
 import android.content.DialogInterface
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
@@ -16,6 +17,7 @@ import com.example.to_do_list.data.MyHelper
 import com.example.to_do_list.databinding.ActivityInsertNoteBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+
 
 class InsertNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInsertNoteBinding
@@ -38,32 +40,62 @@ class InsertNoteActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun AddEcentBtnInsertNote() {
-        binding.btnInsertNote.setOnClickListener {
-            val title = binding.edtTitle.text.toString()
-            val content = binding.edtInsertNoteContent.text.toString()
-            val dateNote: String = getCurrentDate()
-
-            if (title == "" || content == "") {
-                Toast.makeText(this, "Hãy điền đầy đủ nội dung của note", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
+    private fun AddEventBtnBack() {
+        binding.btnBack.setOnClickListener {
+            if (binding.edtTitle.text.toString() != "" || binding.edtInsertNoteContent.text.toString() != "") {
                 val dialog = AlertDialog.Builder(this)
                 dialog.apply {
-                    setTitle("Confirm")
-                    setMessage("Do you want to create a note?")
-                    setIcon(R.drawable.ic_confirm)
+                    dialog.setTitle("Confirm")
+                    dialog.setMessage("Do you want to exit!!!")
+                    dialog.setIcon(R.drawable.ic_confirm)
 
-                    setPositiveButton("Yes") { _: DialogInterface, _: Int ->
-                        val query = "INSERT INTO TODOLIST(NOTE, CONTENT, DATETIME) VALUES(?, ?, ?)"
-                        db.execSQL(query, arrayOf(title, content, dateNote))
+                    dialog.setPositiveButton("Yes") { _: DialogInterface, _: Int ->
                         finish()
                     }
-                    setNegativeButton("No") { dialogIt: DialogInterface, _: Int ->
+
+                    dialog.setNegativeButton("No") { dialogIt: DialogInterface, _: Int ->
                         dialogIt.dismiss()
                     }
                 }.show()
+            } else {
+                finish()
             }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun AddEcentBtnInsertNote() {
+        binding.btnInsertNote.setOnClickListener {
+            InsertNote()
+        }
+    }
+
+    //fun insert note
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun InsertNote() {
+        val title = binding.edtTitle.text.toString()
+        val content = binding.edtInsertNoteContent.text.toString()
+        val dateNote: String = getCurrentDate()
+
+        if (title == "" || content == "") {
+            Toast.makeText(this, "Hãy điền đầy đủ nội dung của note", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            val dialog = AlertDialog.Builder(this)
+            dialog.apply {
+                setTitle("Confirm")
+                setMessage("Do you want to create a note?")
+                setIcon(R.drawable.ic_confirm)
+
+                setPositiveButton("Yes") { _: DialogInterface, _: Int ->
+                    val query = "INSERT INTO TODOLIST(NOTE, CONTENT, DATETIME) VALUES(?, ?, ?)"
+                    db.execSQL(query, arrayOf(title, content, dateNote))
+                    finish()
+                }
+                setNegativeButton("No") { dialogIt: DialogInterface, _: Int ->
+                    dialogIt.dismiss()
+                }
+            }.show()
         }
     }
 
@@ -73,12 +105,6 @@ class InsertNoteActivity : AppCompatActivity() {
         val current = LocalDateTime.now()
         val fm = DateTimeFormatter.ofPattern("dd/MM/yyyy")
         return current.format(fm)
-    }
-
-    private fun AddEventBtnBack() {
-        binding.btnBack.setOnClickListener {
-            finish()
-        }
     }
 
     //sau khi dung activity nay thi cac ham trong onPause se thuc hien

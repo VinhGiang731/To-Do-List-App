@@ -66,6 +66,7 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
     //fun nay dung de goi activity InsertNote
     private fun AddEventClickItem(pos: Int) {
         val i = Intent(requireActivity(), InsertNoteActivity::class.java)
+        i.putExtra("flag", true)
         //truyen du lieu theo pos cua list (lis[pos]: item dang click)
         //gui sang activity kia de show cho nguoi dung xem
         i.putExtra("_id", list[pos].idNote)
