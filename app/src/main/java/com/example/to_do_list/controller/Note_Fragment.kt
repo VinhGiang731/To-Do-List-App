@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.to_do_list.R
 import com.example.to_do_list.data.MyHelper
 import com.example.to_do_list.databinding.FragmentNoteViewBinding
-import com.example.to_do_list.model.ItemNoteClick
+import com.example.to_do_list.model.Item_Click
 import com.example.to_do_list.model.ListNote
 import com.example.to_do_list.model.Rv_NoteAdapter
 
-class NoteFragment : Fragment(R.layout.fragment_note_view) {
+class Note_Fragment : Fragment(R.layout.fragment_note_view) {
     private lateinit var binding: FragmentNoteViewBinding
     private lateinit var adapter: Rv_NoteAdapter
     private lateinit var db: SQLiteDatabase
@@ -42,7 +42,7 @@ class NoteFragment : Fragment(R.layout.fragment_note_view) {
     }
 
     private fun setUpAdapter() {
-        adapter = Rv_NoteAdapter(requireActivity(), list, object : ItemNoteClick {
+        adapter = Rv_NoteAdapter(requireActivity(), list, object : Item_Click {
 
             //override lai 2 phuong thuc nhan long va nhan short cho item rvListNode
             override fun onLongClickNote(pos: Int) {

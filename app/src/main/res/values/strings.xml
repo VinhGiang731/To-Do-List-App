@@ -43,4 +43,10 @@
     <string name="desc_pin">Pin this note</string>
     <string name="desc_writeNote">What to do list?</string>
     <string name="desc_insertNote">write note</string>
+
+    <string name="desc_schedule">You Didn\'t Have Any Schedule</string>
+
+    <string name="time">Time</string>
+    <string name="place">Place</string>
+    <string name="notes">Notes</string>
 </resources>
