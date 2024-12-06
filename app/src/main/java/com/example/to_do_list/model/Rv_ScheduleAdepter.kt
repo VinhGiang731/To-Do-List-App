@@ -31,14 +31,14 @@ class Rv_ScheduleAdepter(
             binding.txtPlace.text = list[position].place
             binding.txtNote.text = list[position].notes
 
-//            holder.itemView.setOnClickListener {
-//                onItem.onLongClickNote(position)
-//                true
-//            }
-//
-//            holder.itemView.setOnClickListener {
-//                onItem.onClickNote(position)
-//            }
+            holder.itemView.setOnLongClickListener {
+                onItem.onLongClickNote(position)
+                true
+            }
+
+            holder.itemView.setOnClickListener {
+                onItem.onClickNote(position)
+            }
         }
     }
 

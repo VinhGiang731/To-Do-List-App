@@ -16,7 +16,7 @@
             android:name=".controller.InsertNoteActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.ScheduleActivity"
+            android:name=".controller.InsertScheduleActivity"
             android:exported="false" />
         <activity
             android:name=".controller.MoreActivity"

@@ -1,5 +1,6 @@
 package com.example.to_do_list.controller
 
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
@@ -7,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.Visibility
 import com.example.to_do_list.R
 import com.example.to_do_list.data.MyHelper
 import com.example.to_do_list.databinding.FragmentScheduleViewBinding
@@ -64,11 +64,13 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
     private fun setUpAdapter() {
         adapter = Rv_ScheduleAdepter(requireActivity(), list, object : Item_Click {
             override fun onLongClickNote(pos: Int) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireActivity(), "${pos} long", Toast.LENGTH_SHORT).show()
             }
 
             override fun onClickNote(pos: Int) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireActivity(), "${pos} long", Toast.LENGTH_SHORT).show()
+                val i = Intent(requireActivity(), InsertScheduleActivity::class.java)
+                startActivity(i)
             }
         })
 

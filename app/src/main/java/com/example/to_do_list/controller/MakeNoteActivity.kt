@@ -51,7 +51,7 @@ class MakeNoteActivity : AppCompatActivity() {
 
     private fun AddEventSubFloat2() {
         binding.fabSubFloat2.setOnClickListener {
-            val i = Intent(this, ScheduleActivity::class.java)
+            val i = Intent(this, InsertScheduleActivity::class.java)
             startActivity(i)
         }
     }

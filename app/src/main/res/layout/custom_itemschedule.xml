@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="horizontal"
     tools:ignore="DisableBaselineAlignment">
 
@@ -35,9 +37,7 @@
         android:layout_height="130dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/bg_note_content"
-        android:clickable="true"
-        android:focusable="true">
+        android:background="@drawable/bg_note_content">
 
         <TextView
             android:id="@+id/txt_title_schedule"
@@ -61,13 +61,13 @@
 
         <View
             android:id="@+id/view3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:layout_marginTop="43dp"
-            android:layout_span="2"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="16dp"
             android:background="@color/purple"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:hint="@string/time"
+            android:text="@string/time"
             app:layout_constraintStart_toEndOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/txt_title_schedule"
             tools:ignore="MissingConstraints" />
@@ -106,7 +106,7 @@
             style="@style/item_schedule2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/place"
+            android:text="@string/place"
             app:layout_constraintStart_toStartOf="@+id/txt_time"
             app:layout_constraintTop_toBottomOf="@+id/txt_time"
             tools:ignore="MissingConstraints" />
@@ -125,7 +125,8 @@
             style="@style/item_schedule2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/notes"
+            android:layout_marginTop="4dp"
+            android:text="@string/notes"
             app:layout_constraintStart_toStartOf="@+id/txt_place"
             app:layout_constraintTop_toBottomOf="@+id/txt_place"
             tools:ignore="MissingConstraints" />
