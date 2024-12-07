@@ -27,7 +27,7 @@ class Rv_ScheduleAdepter(
         holder.itemView.apply {
             binding.txtDay.text = list[position].day
             binding.txtTitleSchedule.text = list[position].title
-            binding.txtTime.text = list[position].time
+            binding.txtTime.text = "${list[position].timeStart} - ${list[position].timeEnd}"
             binding.txtPlace.text = list[position].place
             binding.txtNote.text = list[position].notes
 

@@ -13,12 +13,14 @@ class MyHelper(context: Context) : SQLiteOpenHelper(context, "TODOLIST_DB", null
         db?.execSQL("INSERT INTO TODOLIST(NOTE, CONTENT, DATETIME) VALUES('cái 5', 'Đây là nội dung note tui làm để test', '31/07/2008')")
         db?.execSQL("INSERT INTO TODOLIST(NOTE, CONTENT, DATETIME) VALUES('cái 6', 'Đây là nội dung note tui làm để test', '31/07/2009')")
 
-        db?.execSQL("CREATE TABLE SCHEDULE(_id INTEGER PRIMARY KEY AUTOINCREMENT, DAY TEXT, TITLE TEXT, TIME TEXT, PLACE TEXT, NOTES TEXT)")
-        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, TIME, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', '07.00 AM - 10.00 AM', 'Danang', 'Nothing')")
-        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, TIME, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', '07.00 AM - 10.00 AM', 'Danang', 'Nothing')")
-        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, TIME, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', '07.00 AM - 10.00 AM', 'Danang', 'Nothing')")
-        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, TIME, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', '07.00 AM - 10.00 AM', 'Danang', 'Nothing')")
-        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, TIME, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', '07.00 AM - 10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("CREATE TABLE SCHEDULE(_id INTEGER PRIMARY KEY AUTOINCREMENT, DAY TEXT, TITLE TEXT, FULLDAY INTEGER, TIMESTART TEXT, TIMEEND TEXT, REPEAT INTEGER, REMINDER TEXT, PLACE TEXT, NOTES TEXT)")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
+        db?.execSQL("INSERT INTO SCHEDULE(DAY, TITLE, FULLDAY, TIMESTART, TIMEEND, PLACE, NOTES) VALUES('20', 'Đây là nội dung note tui làm để test', 1, '07.00 AM', '10.00 AM', 'Danang', 'Nothing')")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {

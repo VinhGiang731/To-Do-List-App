@@ -52,10 +52,12 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
             do {
                 val day = rs.getString(rs.getColumnIndexOrThrow("DAY"))
                 val title = rs.getString(rs.getColumnIndexOrThrow("TITLE"))
-                val time = rs.getString(rs.getColumnIndexOrThrow("TIME"))
+                val fullDay = rs.getInt(rs.getColumnIndexOrThrow("FULLDAY"))
+                val timeStart = rs.getString(rs.getColumnIndexOrThrow("TIMESTART"))
+                val timeEnd = rs.getString(rs.getColumnIndexOrThrow("TIMEEND"))
                 val place = rs.getString(rs.getColumnIndexOrThrow("PLACE"))
                 val notes = rs.getString(rs.getColumnIndexOrThrow("NOTES"))
-                list.add(ListSchedule(day, title, time, place, notes))
+                list.add(ListSchedule(day, title, fullDay, timeStart, timeEnd, place, notes))
             } while (rs.moveToNext())
         }
         rs.close()
@@ -68,8 +70,16 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
             }
 
             override fun onClickNote(pos: Int) {
-                Toast.makeText(requireActivity(), "${pos} long", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "${pos} click", Toast.LENGTH_SHORT).show()
                 val i = Intent(requireActivity(), InsertScheduleActivity::class.java)
+                i.putExtra("flag", true)
+                i.putExtra("day", list[pos].day)
+                i.putExtra("title", list[pos].title)
+                i.putExtra("fullday", list[pos].fullday)
+                i.putExtra("timestart", list[pos].timeStart)
+                i.putExtra("timeend", list[pos].timeEnd)
+                i.putExtra("place", list[pos].place)
+                i.putExtra("notes", list[pos].notes)
                 startActivity(i)
             }
         })

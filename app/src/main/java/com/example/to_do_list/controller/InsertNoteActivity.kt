@@ -2,7 +2,6 @@ package com.example.to_do_list.controller
 
 import android.content.ContentValues
 import android.content.DialogInterface
-import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
@@ -35,7 +34,7 @@ class InsertNoteActivity : AppCompatActivity() {
         db = helper.writableDatabase
 
         AddEventBtnBack()
-        AddEcentBtnInsertNote()
+        AddEventBtnInsertNote()
         StringExtraFromList()
     }
 
@@ -64,7 +63,7 @@ class InsertNoteActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun AddEcentBtnInsertNote() {
+    private fun AddEventBtnInsertNote() {
         binding.btnInsertNote.setOnClickListener {
             InsertNote()
         }

@@ -57,6 +57,7 @@
         tools:ignore="Autofill,RtlSymmetry" />
 
     <TableLayout
+        android:stretchColumns="*"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -68,12 +69,14 @@
                 android:id="@+id/textView2"
                 style="@style/textStyleNewSchedule"
                 android:layout_weight="1"
+                android:layout_span="2"
                 android:text="@string/full_day" />
 
             <Switch
                 android:id="@+id/swt_fullday"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
+                android:layout_marginEnd="12dp"
                 android:thumbTint="@color/white"
                 android:trackTint="@color/purple_search"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -97,8 +100,6 @@
             <ImageButton
                 android:id="@+id/btn_pickDateStart"
                 style="@style/btn_datePicker"
-                android:layout_width="50sp"
-                android:layout_height="50sp"
                 android:background="@drawable/empty_bg"
                 android:contentDescription="@string/desc_pickDateStart"
                 android:src="@drawable/img_btn_pickdate"
