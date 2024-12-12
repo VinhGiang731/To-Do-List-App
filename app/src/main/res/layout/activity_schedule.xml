@@ -57,9 +57,9 @@
         tools:ignore="Autofill,RtlSymmetry" />
 
     <TableLayout
-        android:stretchColumns="*"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
 
         <TableRow
             android:layout_width="match_parent"
@@ -68,8 +68,8 @@
             <TextView
                 android:id="@+id/textView2"
                 style="@style/textStyleNewSchedule"
-                android:layout_weight="1"
                 android:layout_span="2"
+                android:layout_weight="1"
                 android:text="@string/full_day" />
 
             <Switch
