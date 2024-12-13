@@ -45,7 +45,7 @@ class InsertNoteActivity : AppCompatActivity() {
                 val dialog = AlertDialog.Builder(this)
                 dialog.apply {
                     dialog.setTitle("Confirm")
-                    dialog.setMessage("Do you want to exit!!!")
+                    dialog.setMessage("Do you want to exit?")
                     dialog.setIcon(R.drawable.ic_confirm)
 
                     dialog.setPositiveButton("Yes") { _: DialogInterface, _: Int ->

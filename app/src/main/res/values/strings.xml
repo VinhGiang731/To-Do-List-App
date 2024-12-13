@@ -49,4 +49,13 @@
     <string name="time">Time</string>
     <string name="place">Place</string>
     <string name="notes">Notes</string>
+
+<!--    content dialog-->
+    <string name="confirm">Confirm</string>
+    <string name="warning">Warning</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="dialog_confirm">Do you want to exit?</string>
+    <string name="dialog_save">Do you want to save?</string>
+    <string name="dialog_warning">Are you done yet?</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.to_do_list.controller
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -58,31 +59,31 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
                 val timeEnd = rs.getString(rs.getColumnIndexOrThrow("TIMEEND"))
                 val place = rs.getString(rs.getColumnIndexOrThrow("PLACE"))
                 val notes = rs.getString(rs.getColumnIndexOrThrow("NOTES"))
-                list.add(ListSchedule(scheduleID, day, title, fullDay, timeStart, timeEnd, place, notes))
+                list.add(
+                    ListSchedule(
+                        scheduleID,
+                        day,
+                        title,
+                        fullDay,
+                        timeStart,
+                        timeEnd,
+                        place,
+                        notes
+                    )
+                )
             } while (rs.moveToNext())
         }
         rs.close()
     }
 
     private fun setUpAdapter() {
-        adapter = Rv_ScheduleAdepter(requireActivity(), list, object : Item_Click {
+        adapter = Rv_ScheduleAdepter(requireActivity(), list.sortedBy { it.day.toInt() }, object : Item_Click {
             override fun onLongClickNote(pos: Int) {
                 Toast.makeText(requireActivity(), "${pos} long", Toast.LENGTH_SHORT).show()
             }
 
             override fun onClickNote(pos: Int) {
-                Toast.makeText(requireActivity(), "${list[pos]._id} click", Toast.LENGTH_SHORT).show()
-                val i = Intent(requireActivity(), InsertScheduleActivity::class.java)
-                i.putExtra("flag", true)
-                i.putExtra("_id", list[pos]._id)
-                i.putExtra("day", list[pos].day)
-                i.putExtra("title", list[pos].title)
-                i.putExtra("fullday", list[pos].fullday)
-                i.putExtra("timestart", list[pos].timeStart)
-                i.putExtra("timeend", list[pos].timeEnd)
-                i.putExtra("place", list[pos].place)
-                i.putExtra("notes", list[pos].notes)
-                startActivity(i)
+                addEventClickItem(pos)
             }
         })
 
@@ -90,5 +91,25 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
         binding.rvListSchedule.layoutManager = LinearLayoutManager(requireActivity())
     }
 
+    private fun addEventClickItem(pos: Int) {
+        val i = Intent(requireActivity(), InsertScheduleActivity::class.java)
+        i.putExtra("flag", true)
+        i.putExtra("_id", list[pos]._id)
+        i.putExtra("day", list[pos].day)
+        i.putExtra("title", list[pos].title)
+        i.putExtra("fullday", list[pos].fullday)
+        i.putExtra("timestart", list[pos].timeStart)
+        i.putExtra("timeend", list[pos].timeEnd)
+        i.putExtra("place", list[pos].place)
+        i.putExtra("notes", list[pos].notes)
+        startActivity(i)
+    }
 
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
+        setUpAdapter()
+        getValueDataBase()
+    }
 }

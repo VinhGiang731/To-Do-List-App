@@ -46,19 +46,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:maxLength="20"
             android:maxLines="1"
             android:text="@string/hint_title"
-            android:maxLength="20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <CheckBox-->
-<!--            android:id="@+id/chk_done"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/txt_title_schedule"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/txt_title_schedule" />-->
+        <CheckBox
+            android:id="@+id/chk_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_title_schedule"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_schedule" />
 
         <View
             android:id="@+id/view3"
@@ -88,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:maxLines="1"
             android:text="@string/time"
             app:layout_constraintStart_toEndOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/txt_title_schedule"
@@ -105,8 +106,10 @@
         <TextView
             android:id="@+id/txt_place"
             style="@style/item_schedule2"
-            android:layout_width="wrap_content"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="1"
             android:text="@string/place"
             app:layout_constraintStart_toStartOf="@+id/txt_time"
             app:layout_constraintTop_toBottomOf="@+id/txt_time"
@@ -124,9 +127,10 @@
         <TextView
             android:id="@+id/txt_note"
             style="@style/item_schedule2"
-            android:layout_width="wrap_content"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:maxLines="1"
             android:text="@string/notes"
             app:layout_constraintStart_toStartOf="@+id/txt_place"
             app:layout_constraintTop_toBottomOf="@+id/txt_place"
