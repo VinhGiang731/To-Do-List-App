@@ -6,6 +6,7 @@ import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.to_do_list.R
 import com.example.to_do_list.data.MyHelper
+import com.example.to_do_list.databinding.CustomDialogConfirmBinding
 import com.example.to_do_list.databinding.FragmentNoteViewBinding
 import com.example.to_do_list.model.Item_Click
 import com.example.to_do_list.model.ListNote
@@ -23,6 +25,7 @@ class Note_Fragment : Fragment(R.layout.fragment_note_view) {
     private lateinit var adapter: Rv_NoteAdapter
     private lateinit var db: SQLiteDatabase
     private lateinit var rs: Cursor
+    private lateinit var dialog: AlertDialog
     private lateinit var list: MutableList<ListNote>
 
     @SuppressLint("NotifyDataSetChanged")
@@ -54,7 +57,7 @@ class Note_Fragment : Fragment(R.layout.fragment_note_view) {
 
             override fun onClickNote(pos: Int) {
                 //truyen positon tuong tu tren
-                AddEventClickItem(pos)
+                addEventClickItem(pos)
             }
         })
 
@@ -64,7 +67,7 @@ class Note_Fragment : Fragment(R.layout.fragment_note_view) {
     }
 
     //fun nay dung de goi activity InsertNote
-    private fun AddEventClickItem(pos: Int) {
+    private fun addEventClickItem(pos: Int) {
         val i = Intent(requireActivity(), InsertNoteActivity::class.java)
         i.putExtra("flag", true)
         //truyen du lieu theo pos cua list (lis[pos]: item dang click)
@@ -109,29 +112,30 @@ class Note_Fragment : Fragment(R.layout.fragment_note_view) {
 
     //ham remove item list
     private fun removeNote(pos: Int) {
-        val dialog = AlertDialog.Builder(requireActivity())
-        dialog.apply {
-            setTitle("Confirm")
-            setMessage("Are you sure this is done?")
-            setIcon(R.drawable.img_warning)
+        val dialogBuilder = AlertDialog.Builder(requireActivity())
+        val dialogBinding = CustomDialogConfirmBinding.inflate(LayoutInflater.from(requireActivity()))
+        dialogBuilder.setView(dialogBinding.root)
 
-            setNegativeButton("No") { dialogIT: DialogInterface, _: Int ->
-                dialogIT.dismiss()
-            }
+        dialogBinding.imgIcon.setImageResource(R.drawable.img_warning)
 
-            setPositiveButton("Yes") { _: DialogInterface, _: Int ->
-                val noteToRemove = list[pos]
+        dialogBinding.txtContent.text = "Are you sure this is done?"
+        dialogBinding.btnYes.setOnClickListener {
+            val noteToRemove = list[pos]
+            db.delete(
+                "TODOLIST", "_id = ?", arrayOf(noteToRemove.idNote)
+            )
 
-                db.delete(
-                    "TODOLIST", "_id = ?", arrayOf(noteToRemove.idNote)
-                )
-
-                list.removeAt(pos)
-                adapter.notifyItemRemoved(pos)
-                adapter.notifyItemRangeChanged(pos, list.size)
-
-            }
+            list.removeAt(pos)
+            adapter.notifyItemRemoved(pos)
+            adapter.notifyItemRangeChanged(pos, list.size)
+            dialog.dismiss()
         }
+
+        dialogBinding.btnNo.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog = dialogBuilder.create()
         dialog.show()
     }
 }

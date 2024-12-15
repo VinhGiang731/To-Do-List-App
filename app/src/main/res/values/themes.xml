@@ -10,12 +10,6 @@
         <item name="postSplashScreenTheme">@style/Base.Theme.ToDoList</item>
     </style>
 
-    <style name="Dialog_confirm" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:windowBackground">@android:color/transparent</item>
-
-        <item name="android:windowMinWidthMajor">70%</item>
-    </style>
-
     <!-- styles.xml -->
     <style name="make_yourse">
         <item name="android:textSize">30sp</item>

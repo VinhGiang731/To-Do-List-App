@@ -1,19 +1,19 @@
 package com.example.to_do_list.controller
 
 import android.content.ContentValues
-import android.content.DialogInterface
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.to_do_list.R
 import com.example.to_do_list.data.MyHelper
 import com.example.to_do_list.databinding.ActivityInsertNoteBinding
+import com.example.to_do_list.databinding.CustomDialogConfirmBinding
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -22,6 +22,7 @@ class InsertNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInsertNoteBinding
     private lateinit var db: SQLiteDatabase
     private lateinit var rs: Cursor
+    private lateinit var dialog: AlertDialog
     private var noteID: String? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -33,68 +34,67 @@ class InsertNoteActivity : AppCompatActivity() {
         val helper = MyHelper(this)
         db = helper.writableDatabase
 
-        AddEventBtnBack()
-        AddEventBtnInsertNote()
-        StringExtraFromList()
+        addEventBtnBack()
+        addEventBtnInsertNote()
+        stringExtraFromList()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun AddEventBtnBack() {
+    private fun addEventBtnBack() {
         binding.btnBack.setOnClickListener {
-            if (binding.edtTitle.text.toString() != "" || binding.edtInsertNoteContent.text.toString() != "") {
-                val dialog = AlertDialog.Builder(this)
-                dialog.apply {
-                    dialog.setTitle("Confirm")
-                    dialog.setMessage("Do you want to exit?")
-                    dialog.setIcon(R.drawable.ic_confirm)
+            val dialogBuilder = AlertDialog.Builder(this)
+            val dialogBinding = CustomDialogConfirmBinding.inflate(LayoutInflater.from(this))
+            dialogBuilder.setView(dialogBinding.root)
 
-                    dialog.setPositiveButton("Yes") { _: DialogInterface, _: Int ->
-                        finish()
-                    }
-
-                    dialog.setNegativeButton("No") { dialogIt: DialogInterface, _: Int ->
-                        dialogIt.dismiss()
-                    }
-                }.show()
-            } else {
+            dialogBinding.btnYes.setOnClickListener {
                 finish()
             }
+
+            dialogBinding.btnNo.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            dialog= dialogBuilder.create()
+            dialog.show()
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun AddEventBtnInsertNote() {
+    private fun addEventBtnInsertNote() {
         binding.btnInsertNote.setOnClickListener {
-            InsertNote()
+            insertNote()
         }
     }
 
     //fun insert note
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun InsertNote() {
+    private fun insertNote() {
         val title = binding.edtTitle.text.toString()
         val content = binding.edtInsertNoteContent.text.toString()
         val dateNote: String = getCurrentDate()
 
         if (title == "" || content == "") {
-            Toast.makeText(this, "Hãy điền đầy đủ nội dung của note", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Hãy điền đầy đủ nội dung của note!!!", Toast.LENGTH_SHORT)
                 .show()
         } else {
-            val dialog = AlertDialog.Builder(this)
-            dialog.apply {
-                setTitle("Confirm")
-                setMessage("Do you want to create a note?")
-                setIcon(R.drawable.ic_confirm)
+            val dialogBuilder = AlertDialog.Builder(this)
+            val dialogBinding = CustomDialogConfirmBinding.inflate(LayoutInflater.from(this))
+            dialogBuilder.setView(dialogBinding.root)
 
-                setPositiveButton("Yes") { _: DialogInterface, _: Int ->
-                    val query = "INSERT INTO TODOLIST(NOTE, CONTENT, DATETIME) VALUES(?, ?, ?)"
-                    db.execSQL(query, arrayOf(title, content, dateNote))
+            dialogBinding.txtContent.text ="Do you want to create a note?"
+
+            dialogBinding.btnYes.setOnClickListener {
+                val query = "INSERT INTO TODOLIST(NOTE, CONTENT, DATETIME) VALUES(?, ?, ?)"
+                db.execSQL(query, arrayOf(title, content, dateNote))
                     finish()
-                }
-                setNegativeButton("No") { dialogIt: DialogInterface, _: Int ->
-                    dialogIt.dismiss()
-                }
-            }.show()
+            }
+
+            dialogBinding.btnNo.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            dialog = dialogBuilder.create()
+            dialog.show()
         }
     }
 
@@ -113,11 +113,10 @@ class InsertNoteActivity : AppCompatActivity() {
     }
 
     //fun nay dung de get value dc truyen tu activity truoc
-    private fun StringExtraFromList() {
+    private fun stringExtraFromList() {
         noteID = intent.getStringExtra("_id")
         val title = intent.getStringExtra("Title")
         val content = intent.getStringExtra("Content")
-
         binding.edtTitle.setText(title)
         binding.edtInsertNoteContent.setText(content)
     }
