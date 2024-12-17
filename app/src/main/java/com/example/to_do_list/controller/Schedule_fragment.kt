@@ -62,6 +62,8 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
                 val fullDay = rs.getInt(rs.getColumnIndexOrThrow("FULLDAY"))
                 val timeStart = rs.getString(rs.getColumnIndexOrThrow("TIMESTART"))
                 val timeEnd = rs.getString(rs.getColumnIndexOrThrow("TIMEEND"))
+                val repeat = rs.getInt(rs.getColumnIndexOrThrow("REPEAT"))
+                val remind = rs.getInt(rs.getColumnIndexOrThrow("REMINDER"))
                 val place = rs.getString(rs.getColumnIndexOrThrow("PLACE"))
                 val notes = rs.getString(rs.getColumnIndexOrThrow("NOTES"))
                 list.add(
@@ -72,6 +74,8 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
                         fullDay,
                         timeStart,
                         timeEnd,
+                        repeat,
+                        remind,
                         place,
                         notes
                     )
@@ -143,6 +147,8 @@ class Schedule_fragment : Fragment(R.layout.fragment_schedule_view) {
         i.putExtra("fullday", list[pos].fullday)
         i.putExtra("timestart", list[pos].timeStart)
         i.putExtra("timeend", list[pos].timeEnd)
+        i.putExtra("repeat", list[pos].repeat)
+        i.putExtra("remind", list[pos].remind)
         i.putExtra("place", list[pos].place)
         i.putExtra("notes", list[pos].notes)
         startActivity(i)

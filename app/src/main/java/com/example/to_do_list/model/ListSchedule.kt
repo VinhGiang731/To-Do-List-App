@@ -7,6 +7,8 @@ data class ListSchedule(
     val fullday: Int,
     val timeStart: String,
     val timeEnd: String,
+    val repeat: Int,
+    val remind: Int,
     val place: String,
     val notes: String
 )

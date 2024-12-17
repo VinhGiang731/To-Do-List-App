@@ -1,5 +1,6 @@
 package com.example.to_do_list.controller
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.ContentValues
@@ -7,11 +8,16 @@ import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.to_do_list.R
 import com.example.to_do_list.data.MyHelper
 import com.example.to_do_list.databinding.ActivityScheduleBinding
 import com.example.to_do_list.databinding.CustomDialogConfirmBinding
@@ -25,6 +31,8 @@ class InsertScheduleActivity : AppCompatActivity() {
     private val toDay = Calendar.getInstance()
     private var daySchedule: String? = null
     private lateinit var dialog: AlertDialog
+    private val repeat = listOf("One time", "Twice", "Three times", "Four", "Five times")
+    private val remind = listOf("Before 5 minutes", "Before 10 minutes", "Before 15 minutes")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +42,54 @@ class InsertScheduleActivity : AppCompatActivity() {
         val helper = MyHelper(this)
         db = helper.readableDatabase
 
+        setUpSpinner()
+
         addEventBtnBack()
         if (flag) {
             getIntentPutExtras()
         }
 
-        addEventBtnCombobox()
+        addEventBtnDateTimePicker()
         addEventBtnInsertSchedule()
         getIntentPutExtras()
+    }
+
+    private fun setUpSpinner() {
+        val adtsp1 =
+            object : ArrayAdapter<String>(this, android.R.layout.simple_gallery_item, repeat) {
+                @SuppressLint("ResourceAsColor")
+                override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                    val view = super.getView(position, convertView, parent)
+                    val textView = view as TextView
+                    textView.setTextColor(
+                        ContextCompat.getColor(
+                            this@InsertScheduleActivity,
+                            R.color.btn_pickDate
+                        )
+                    )
+                    return view
+                }
+            }
+        adtsp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spRepeat.adapter = adtsp1
+
+        val adtsp2 =
+            object : ArrayAdapter<String>(this, android.R.layout.simple_gallery_item, remind) {
+                @SuppressLint("ResourceAsColor")
+                override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                    val view = super.getView(position, convertView, parent)
+                    val textView = view as TextView
+                    textView.setTextColor(
+                        ContextCompat.getColor(
+                            this@InsertScheduleActivity,
+                            R.color.btn_pickDate
+                        )
+                    )
+                    return view
+                }
+            }
+        adtsp2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spRemind.adapter = adtsp2
     }
 
     private fun addEventBtnInsertSchedule() {
@@ -90,7 +138,7 @@ class InsertScheduleActivity : AppCompatActivity() {
     }
 
     //mai phải hoàn thành sự kiện chọn time start và end
-    private fun addEventBtnCombobox() {
+    private fun addEventBtnDateTimePicker() {
         binding.btnPickDateStart.setOnClickListener {
             datePicker(binding.txtStart)
         }
@@ -135,6 +183,8 @@ class InsertScheduleActivity : AppCompatActivity() {
         val fullDay = intent.getIntExtra("fullday", 0)
         val timeStart = intent.getStringExtra("timestart")
         val timeEnd = intent.getStringExtra("timeend")
+        val repeat = intent.getIntExtra("repeat", 0)
+        val remind = intent.getIntExtra("remind", 0)
         val place = intent.getStringExtra("place")
         val notes = intent.getStringExtra("notes")
 
@@ -144,6 +194,8 @@ class InsertScheduleActivity : AppCompatActivity() {
         }
         binding.txtStart.text = timeStart
         binding.txtFinish.text = timeEnd
+        binding.spRepeat.setSelection(repeat)
+        binding.spRemind.setSelection(remind)
         binding.edtPlace.setText(place)
         binding.edtNotes.setText(notes)
 
@@ -181,6 +233,8 @@ class InsertScheduleActivity : AppCompatActivity() {
             val fullday = binding.swtFullday.isChecked
             val start = binding.txtStart.text.toString()
             val finish = binding.txtFinish.text.toString()
+            val repeat = binding.spRepeat.selectedItemPosition
+            val remind = binding.spRemind.selectedItemPosition
             val place = binding.edtPlace.text.toString()
             val notes = binding.edtNotes.text.toString()
 
@@ -190,6 +244,8 @@ class InsertScheduleActivity : AppCompatActivity() {
                 put("FULLDAY", fullday)
                 put("TIMESTART", start)
                 put("TIMEEND", finish)
+                put("REPEAT", repeat)
+                put("REMINDER", remind)
                 put("PLACE", place)
                 put("NOTES", notes)
             }
