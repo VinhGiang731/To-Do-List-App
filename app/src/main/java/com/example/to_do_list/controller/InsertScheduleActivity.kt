@@ -52,6 +52,7 @@ class InsertScheduleActivity : AppCompatActivity() {
         addEventBtnDateTimePicker()
         addEventBtnInsertSchedule()
         getIntentPutExtras()
+      
     }
 
     private fun setUpSpinner() {
