@@ -96,7 +96,7 @@ class Note_Fragment : Fragment(R.layout.fragment_note_view) {
         }
 
         rs = db.rawQuery("SELECT * FROM TODOLIST", null)
-        list.clear()
+        list.clear() //giang
 
         if (rs.moveToFirst()) {
             do {
