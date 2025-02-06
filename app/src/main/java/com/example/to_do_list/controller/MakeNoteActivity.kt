@@ -21,7 +21,6 @@ class MakeNoteActivity : AppCompatActivity() {
         binding = ActivityMakenoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        AddEventBtnMore()
         ViewPagerSetup()
         AddEvenBtnFloat()
     }
@@ -154,12 +153,5 @@ class MakeNoteActivity : AppCompatActivity() {
                 }
             }
         }.attach()
-    }
-
-    private fun AddEventBtnMore() {
-        binding.btnMore.setOnClickListener {
-            val intent = Intent(this, MoreActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
